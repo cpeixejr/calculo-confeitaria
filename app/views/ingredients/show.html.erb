@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to ingredients"), ingredients_path %>
+  <div class="header">
+    <h1>
+      <%= @ingredient.name %>
+    </h1>
+    <h2><%= @ingredient.price %></h2>
+  </div>
+</main>
