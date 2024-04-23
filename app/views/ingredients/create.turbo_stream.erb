@@ -1,0 +1,2 @@
+<%= turbo_stream.prepend "ingredients", partial: "ingredients/ingredient", locals: { ingredient: @ingredient } %>
+<%= turbo_stream.update Ingredient.new, "" %>
