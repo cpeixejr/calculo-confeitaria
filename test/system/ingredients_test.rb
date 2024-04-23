@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class IngredientsTest < ApplicationSystemTestCase
   setup do
-    @ingredient = ingredients(:one) # Reference to the one fixture ingredient
+    @ingredient = Ingredient.ordered.first
   end
 
   test "visiting the index" do
@@ -15,7 +15,7 @@ class IngredientsTest < ApplicationSystemTestCase
     new_ingredient_name = "Leite"
     visit ingredients_url
     click_on "New ingredient"
-    assert_selector "h1", text: "New ingredient"
+    assert_selector "h1", text: "Ingredients"
     fill_in "Name", with: new_ingredient_name
     fill_in "Price", with: 5.5
     click_on "Create ingredient"
@@ -37,9 +37,8 @@ class IngredientsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Ingredients"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit ingredient"
-
     fill_in "Name", with: updated_ingredient_name
+    assert_selector "h1", text: "Ingredients"
     click_on "Update ingredient"
 
     assert_selector "h1", text: "Ingredients"

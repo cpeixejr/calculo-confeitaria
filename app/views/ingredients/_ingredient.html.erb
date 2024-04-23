@@ -1,13 +1,18 @@
-<div class="ingredient">
-  <%= link_to ingredient.name, ingredient_path(ingredient) %>
-  <p><%= ingredient.price %></p>
-  <div class="ingredient__actions">
-    <%= button_to "Delete",
-                  ingredient_path(ingredient),
-                  method: :delete,
+<%= turbo_frame_tag ingredient do %>
+  <div class="ingredient">
+    <%= link_to ingredient.name,
+                ingredient_path(ingredient),
+                data: { turbo_frame: "_top" } %>
+    <p><%= ingredient.price %></p>
+    <div class="ingredient__actions">
+      <%= button_to "Delete",
+                    ingredient_path(ingredient),
+                    method: :delete,
+                    form: { data: { turbo_frame: "_top" } },
+                    class: "btn btn--light" %>
+      <%= link_to "Edit",
+                  edit_ingredient_path(ingredient),
                   class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_ingredient_path(ingredient),
-                class: "btn btn--light" %>
+    </div>
   </div>
-</div>
+<% end %>

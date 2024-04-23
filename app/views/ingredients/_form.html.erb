@@ -7,5 +7,6 @@
 
   <%= f.input :name, input_html: { autofocus: true } %>
   <%= f.input :price %>
+  <%= link_to "Cancel", ingredients_path, class: "btn btn--light" %>
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>

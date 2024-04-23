@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.ordered
   end
 
   def show
@@ -16,7 +16,10 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new(ingredient_params)
 
     if @ingredient.save
-      redirect_to ingredients_path, notice: "Ingredient was successfully created."
+      respond_to do |format|
+        format.html { redirect_to ingredients_path, notice: "Ingredient was successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +38,11 @@ class IngredientsController < ApplicationController
 
   def destroy
     @ingredient.destroy
-    redirect_to ingredients_path, notice: "Ingredient was successfully destroyed."
+
+    respond_to do |format|
+      format.html { redirect_to ingredients_path, notice: "Ingredient was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private

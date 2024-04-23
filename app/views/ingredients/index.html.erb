@@ -1,10 +1,17 @@
 <main class="container">
-  <div class="header">
-    <h1>Ingredients</h1>
-    <%= link_to "New ingredient",
-                new_ingredient_path,
-                class: "btn btn--primary" %>
-  </div>
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+    <div class="header">
+      <h1>Ingredients</h1>
+      <%= link_to "New ingredient",
+                  new_ingredient_path,
+                  class: "btn btn--primary",
+                  data: { turbo_frame: dom_id(Ingredient.new) } %>
+    </div>
+  <% end %>
 
-  <%= render @ingredients %>
+  <%= turbo_frame_tag Ingredient.new %>
+
+  <%= turbo_frame_tag "ingredients" do %>
+    <%= render @ingredients %>
+  <% end %>
 </main>
