@@ -5,11 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  name: "Leite condensado"
-  price: 4.99
-  user: one
+  email: carlos@company.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 two:
-  name: "Ovos"
-  price: 27.99
-  user: two
+  email: junior@company.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

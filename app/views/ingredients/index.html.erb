@@ -1,4 +1,4 @@
-<%= turbo_stream_from "ingredients" %>
+<%= turbo_stream_from current_user, "ingredients" %>
 
 <main class="container">
   <%= turbo_frame_tag "first_turbo_frame" do %>

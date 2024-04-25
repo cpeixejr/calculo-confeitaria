@@ -20,4 +20,14 @@
     align-self: flex-start;
     gap: var(--space-xs);
   }
+
+  a {
+    color: var(--color-dark);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-text-muted);
+    }
+  }
 }

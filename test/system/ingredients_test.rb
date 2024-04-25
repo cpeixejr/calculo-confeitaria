@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class IngredientsTest < ApplicationSystemTestCase
   setup do
+    login_as users(:one)
     @ingredient = Ingredient.ordered.first
   end
 

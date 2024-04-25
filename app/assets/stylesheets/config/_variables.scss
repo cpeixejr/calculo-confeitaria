@@ -34,17 +34,17 @@
   --space-xxxxl: 4rem;   // 64px
 
   // Application colors
-  --color-primary:          #ff1964;
-  --color-primary-rotate:   hsl(10, 73%, 54%);
+  --color-primary:          #6fbcaa;
+  --color-primary-rotate:   #b8d6b0;
   --color-primary-bg:       #feedbf;
   --color-secondary:        #259b9b;
   --color-secondary-rotate: hsl(120, 45%, 56%);
-  --color-tertiary:         #6fbcaa;
+  --color-tertiary:         #feedbf;
   --color-glint:            hsl(210, 100%, 82%);
 
   // Neutral colors
   --color-white:      hsl(0, 0%, 100%);
-  --color-background: #feedbf;
+  --color-background: #ff1964;
   --color-light:      hsl(0, 6%, 93%);
   --color-dark:       var(--color-text-header);
 
