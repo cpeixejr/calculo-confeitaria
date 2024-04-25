@@ -1,7 +1,9 @@
 class Ingredient < ApplicationRecord
   validates :name, :price, presence: true
 
-  broadcasts_to ->(ingredient) { "ingredients" }, inserts_by: :prepend
+  belongs_to :user
+
+  broadcasts_to ->(ingredient) { [ingredient.user, "ingredients"] }, inserts_by: :prepend
 
   scope :ordered, -> { order(id: :desc) }
 end

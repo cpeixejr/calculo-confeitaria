@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ingredients = Ingredient.ordered
+    @ingredients = current_user.ingredients.ordered
   end
 
   def show
@@ -13,7 +13,7 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = current_user.ingredients.build(ingredient_params)
 
     if @ingredient.save
       respond_to do |format|
@@ -48,7 +48,7 @@ class IngredientsController < ApplicationController
   private
 
   def set_ingredient
-    @ingredient = Ingredient.find(params[:id])
+    @ingredient = current_user.ingredients.find(params[:id])
   end
 
   def ingredient_params
