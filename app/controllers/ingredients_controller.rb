@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class IngredientsController < ApplicationController
-  before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  before_action :set_ingredient, only: %i[show edit update destroy]
 
   def index
     @ingredients = current_user.ingredients.ordered
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @ingredient = Ingredient.new
@@ -17,7 +18,7 @@ class IngredientsController < ApplicationController
 
     if @ingredient.save
       respond_to do |format|
-        format.html { redirect_to ingredients_path, notice: "Ingredient was successfully created." }
+        format.html { redirect_to ingredients_path, notice: 'Ingredient was successfully created.' }
         format.turbo_stream
       end
     else
@@ -25,12 +26,11 @@ class IngredientsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @ingredient.update(ingredient_params)
-      redirect_to ingredients_path, notice: "Ingredient was successfully updated."
+      redirect_to ingredients_path, notice: 'Ingredient was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class IngredientsController < ApplicationController
     @ingredient.destroy
 
     respond_to do |format|
-      format.html { redirect_to ingredients_path, notice: "Ingredient was successfully destroyed." }
+      format.html { redirect_to ingredients_path, notice: 'Ingredient was successfully destroyed.' }
       format.turbo_stream
     end
   end
