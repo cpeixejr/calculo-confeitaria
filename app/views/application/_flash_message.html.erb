@@ -1,0 +1,7 @@
+<div id="flash-messages" class="w-full flex flex-col items-center space-y-4 sm:items-end">
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
