@@ -1,1 +1,13 @@
 <%= turbo_stream.remove @ingredient %>
+
+<% if notice %>
+  <%= turbo_stream.append 'flash-messages' do %>
+    <%= render 'layouts/notice' %>
+  <% end %>
+<% end %>
+
+<% if alert %>
+  <%= turbo_stream.append 'flash-messages' do %>
+    <%= render 'layouts/alert' %>
+  <% end %>
+<% end %>

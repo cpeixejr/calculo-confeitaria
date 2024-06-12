@@ -1,5 +1,4 @@
-<%= turbo_stream.prepend "ingredients", partial: "ingredients/ingredient", locals: { ingredient: @ingredient } %>
-<%= turbo_stream.update Ingredient.new, "" %>
+<%= turbo_stream.update @ingredient, @ingredient %>
 
 <% if notice %>
   <%= turbo_stream.append 'flash-messages' do %>
